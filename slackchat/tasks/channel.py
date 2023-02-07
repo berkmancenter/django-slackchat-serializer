@@ -24,14 +24,14 @@ def create_private_channel(pk):
             instance.team_id = team.get("id")
 
         client.api_call(
-            "groups.invite",
+            "conversations.invite",
             channel=instance.api_id,
-            user=instance.owner.api_id,
+            users=[instance.owner.api_id],
         )
 
         for manager in settings.MANAGERS:
             client.api_call(
-                "groups.invite", channel=instance.api_id, user=manager
+                "conversations.invite", channel=instance.api_id, users=[manager]
             )
 
     instance.save()
