@@ -3,7 +3,6 @@ import uuid
 from datetime import datetime
 from urllib.parse import urljoin
 
-from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.urls import reverse
 from django.utils.encoding import escape_uri_path
@@ -59,7 +58,7 @@ class Channel(models.Model):
     )
 
     # Extra metadata, provided by django-foreignform
-    extras = JSONField(blank=True, null=True)
+    extras = models.JSONField(blank=True, null=True)
 
     publish_path = models.CharField(
         max_length=300,

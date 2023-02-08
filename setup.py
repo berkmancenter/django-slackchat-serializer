@@ -31,7 +31,7 @@ setup(
     install_requires=[
         "celery",
         "djangorestframework",
-        "django-foreignform",
+        "django-foreignform@git+https://github.com/berkmancenter/django-foreignform@master#egg=django-foreignform",
         "emoji",
         "markdown",
         "markslack",

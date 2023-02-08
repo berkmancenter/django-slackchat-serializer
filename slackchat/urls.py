@@ -5,9 +5,9 @@ from .views import Events, CMSDetail, CMSList, ChannelDeserializer
 from .viewsets import ChannelViewset, ChatTypeViewset
 
 router = routers.DefaultRouter()
-router.register(r"channels", ChannelViewset, base_name="slackchat-channel")
+router.register(r"channels", ChannelViewset, basename="slackchat-channel")
 router.register(
-    r"chat-types", ChatTypeViewset, base_name="slackchat-chat-types"
+    r"chat-types", ChatTypeViewset, basename="slackchat-chat-types"
 )
 
 urlpatterns = [
