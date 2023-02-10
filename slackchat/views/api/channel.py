@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from slackchat.serializers import ChannelCMSSerializer, ChannelSerializer
 from slackchat.models import Channel, ChatType, User
 from slackchat.celery import post_webhook_republish, post_webhook_unpublish
-from slackchat.authentication import TokenAPIAuthentication
+from rest_framework.authentication import TokenAuthentication
 
 
 channelNotFound404 = Response(
@@ -32,7 +32,7 @@ class ChannelDeserializer(APIView):
     View to handle data from CMS.
     """
 
-    authentication_classes = (TokenAPIAuthentication,)
+    authentication_classes = (TokenAuthentication)
     permission_classes = ()
 
     @staticmethod

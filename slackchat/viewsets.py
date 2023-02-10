@@ -3,13 +3,13 @@ from rest_framework import viewsets
 from .models import Channel, ChatType
 from .serializers import (ChannelListSerializer, ChannelSerializer,
                           ChatTypeSerializer)
-
+from rest_framework.authentication import TokenAuthentication
 
 class ChannelViewset(viewsets.ReadOnlyModelViewSet):
     queryset = Channel.objects.all()
     serializer_class = ChannelSerializer
     lookup_field = "pk"
-    authentication_classes = []
+    authentication_classes = [TokenAuthentication]
     permission_classes = []
     pagination_class = None
     throttle_classes = []
@@ -30,7 +30,7 @@ class ChannelViewset(viewsets.ReadOnlyModelViewSet):
 class ChatTypeViewset(viewsets.ReadOnlyModelViewSet):
     queryset = ChatType.objects.all()
     serializer_class = ChatTypeSerializer
-    authentication_classes = []
+    authentication_classes = [TokenAuthentication]
     permission_classes = []
     pagination_class = None
     throttle_classes = []
