@@ -4,7 +4,7 @@ from slackchat.serializers import ChannelCMSSerializer, ChannelSerializer
 from slackchat.models import Channel, ChatType, User
 from slackchat.celery import post_webhook_republish, post_webhook_unpublish
 from rest_framework.authentication import TokenAuthentication
-
+from rest_framework.permissions import IsAuthenticated
 
 channelNotFound404 = Response(
     {"detail": "Channel not found. It may have been deleted."}, 404
@@ -33,7 +33,7 @@ class ChannelDeserializer(APIView):
     """
 
     authentication_classes = (TokenAuthentication)
-    permission_classes = ()
+    permission_classes = (IsAuthenticated)
 
     @staticmethod
     def is_path_unique(pk, channel_path, type_path):
