@@ -32,8 +32,8 @@ class ChannelDeserializer(APIView):
     View to handle data from CMS.
     """
 
-    authentication_classes = (TokenAuthentication)
-    permission_classes = (IsAuthenticated)
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     @staticmethod
     def is_path_unique(pk, channel_path, type_path):
